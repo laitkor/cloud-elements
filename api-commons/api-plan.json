@@ -1,0 +1,46 @@
+[{
+	"coupling": "3",
+	"name": "AlchemyAPI",
+	"host": "alchemyapi.com",
+	"baseurl": "/",
+	"pages": [{
+		"url": "https://console.ng.bluemix.net/catalog/services/alchemyapi"
+	}],
+	"elements": [{
+		"name": "Public"
+	},
+	{
+		"name": "Free"
+	}],
+	"timeframes": [{
+		"name": "Daily"
+	}],
+	"metrics": [],
+	"geo": [{
+		"name": "Country"
+	}],
+	"limits": [{
+		"name": "Range"
+	}],
+	"resources": [],
+	"extensions": [],
+	"plans": [{
+		"name": "Free",
+		"description": "",
+		"entries": [],
+		"elements": [{
+			"name": "Public"
+		},
+		{
+			"name": "Free"
+		}]
+	},
+	{
+		"name": "Default",
+		"description": "",
+		"entries": [],
+		"elements": [{
+			"name": "Public"
+		}]
+	}]
+}]

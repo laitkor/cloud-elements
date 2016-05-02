@@ -1,0 +1,190 @@
+---
+layout: page
+title: 'Manage Tags'
+---
+<h3>Manage Summaries & Descriptions</h3>
+<p>This is a listing of API resources available in <a href="/apis.json">this projects APIs.json</a>, with a simple tool for helping make sure all API paths have complete summaries and descriptions.</p>
+
+<script type="text/jscript">
+
+var $apiurl = "";
+var $openapi_spec_count = 0;
+var $openapi_spec_store = {};
+
+function viewSpec($openapi_spec_count)
+    {
+    console.log("count: " + $openapi_spec_count);
+    $newpaths = {};
+    $rowcount = 0;
+    $howmany = $('#path-' + $openapi_spec_count).length;
+    $currentJSON = $openapi_spec_store[$openapi_spec_count];
+
+    $('#path-' + $openapi_spec_count).each(function (i, row) {
+
+         $row = $(row)
+         $paths = $row.find('input');
+
+         $paths.each(function (i, textbox) {
+
+            $path_name = textbox.id;
+            $path_array = $path_name.split("~");
+            $path = $path_array[0];
+            $verb = $path_array[1].toLowerCase();
+            $field = $path_array[2];
+
+            $field_array = textbox.value.split(',');
+            $currentJSON.paths[$path][$verb][$field] = $field_array;
+
+            });
+
+        $rowcount++;
+
+        if($howmany == $rowcount)
+            {
+            $openapi_spec_store[$openapi_spec_count] = $currentJSON;
+
+            $viewer = document.getElementById('table-view-' + $openapi_spec_count)
+            if($viewer.style.display=='none')
+                {
+                $view_json = $openapi_spec_store[$openapi_spec_count];
+                $viewer = JSON.stringify($view_json, null, 4);
+                document.getElementById('description-view-' + $openapi_spec_count).value = $viewer;
+                document.getElementById('table-view-' + $openapi_spec_count).style.display = '';
+                }
+             else
+                {
+                document.getElementById('description-view-' + $openapi_spec_count).value = '';
+                document.getElementById('table-view-' + $openapi_spec_count).style.display = 'none';
+                }
+            }
+        });
+
+    }
+
+function saveSpec($openapi_spec_count)
+    {
+     console.log("saving spec...");
+    }
+
+function processAPI($singleAPIs)
+    {
+
+    // Begin Each API
+    $.each($singleAPIs, function(apiKey, apiVal) {
+
+        $apiName = apiVal['name'];
+
+        $apiDesc = apiVal['description'];
+        $apiLogo = apiVal['image'];
+        $apiHumanURL = apiVal['humanURL'];
+        $apiBaseURL = apiVal['baseURL'];
+
+        $apiProperties = apiVal['properties'];
+
+        // Begin Each API Properties
+        $.each($apiProperties, function(propertyKey, propertyValue) {
+
+            $type = propertyValue['type'];
+            $url = propertyValue['url'];
+
+            // End OpenAPI Spec
+            if($type=='x-openapi-spec')
+                {
+                var jqxhr3 = $.getJSON($url, function($openapispec) {
+
+                    $openapi_spec_store[$openapi_spec_count] = $openapispec;
+
+                    $paths = $openapispec['paths'];
+                    $title = $openapispec['info']['title'];
+
+                    $apiSlug = $title.replace(/ /g,"-");
+                    $apiSlug = $apiSlug.toLowerCase();
+
+                    $html = '<p style="font-size: 18px; padding-top: 15px; padding-bottom: 15px;"><strong>' + $title + '</strong>';
+                    $html = $html + '(<a href="#" onclick="viewSpec(' + $openapi_spec_count + '); return false;">view spec</a>)';
+                    $html = $html + '(<a href="#" onclick="saveSpec(' + $openapi_spec_count + '); return false;">save spec</a>)';
+                    $html = $html + '</p>';
+                    $('#jsonBrowser').append($html);
+
+                    $html = '<table style="padding: 0px; margin: 0px; display: none;" border="0" id="table-view-' + $openapi_spec_count + '">';
+                    $html = $html + '<tr><td align="left" valign="top" colspan="3"><textarea rows="3" cols="200" style="width: 99%; height: 200px; overflow: auto;" id="description-view-' + $openapi_spec_count + '"></textarea></td></tr></table>';
+                    $('#jsonBrowser').append($html);
+
+                    $table = '<table border="0" id="path-' + $openapi_spec_count + '">';
+                    $('#jsonBrowser').append($table);
+
+                    $.each($paths, function(pathKey, pathValue) {
+
+                        $path_name = pathKey;
+
+                        $.each(pathValue, function(methodKey, methodValue) {
+
+                          $method = methodKey.toUpperCase();;
+                          $method_tags = methodValue['tags'].join();
+
+                          $html = '<tr><td align="left" colspan="2" style="padding: 5px 5px 10px 5px; font-size: 16px;"><strong>' + $method + ' ' + $path_name + '</strong></td></tr>';
+                          $('#path-' + $openapi_spec_count).append($html);
+
+                          $html = '<tr><td width="90" align="right" valign="top"><strong>Tags:</strong></td><td align="left" valign="top"><input type="text" id="' + $path_name + '~' + $method + '~tags" value="' + $method_tags + '" style="width: 98%;" /></td></tr>';
+                          $('#path-' + $openapi_spec_count).append($html);
+
+                          });
+
+                        });
+                       $openapi_spec_count++;
+                     });
+                 }
+                // End OpenAPI Spec
+
+            });
+            // End Each API Properties
+
+        });
+        // Begin Each API
+    }
+
+function loadAPIsJson($apisjsonURL)
+    {
+
+      $apiHumanURL = "";
+
+      // Begin Pull Root APIs.json
+      var jqxhr = $.getJSON($apisjsonURL, function(apisJSON) {
+
+        $masterName = apisJSON['name'];
+        console.log($masterName);
+        $masterDesc = apisJSON['description'];
+        $masterLogo = apisJSON['image'];
+        $masterURL = apisJSON['url'];
+
+        $masterAPIs = apisJSON['apis'];
+
+        // Loop Through Each API
+        processAPI($masterAPIs)
+
+        $masterTags = apisJSON['tags'];
+        $masterIncludes = apisJSON['include'];
+
+        // Begin Includes
+        $.each($masterIncludes, function(masterKey, masterValue) {
+
+            $includeName = masterValue['name'];
+            $includeRootUrl = masterValue['url'];
+            console.log($includeRootUrl);
+
+            // Begin Pull Include
+            loadAPIsJson($includeRootUrl)
+            // Begin Pull Include
+
+            });
+            // End Includes
+        });
+        // End Pull Root APIs.json
+    }
+
+$apisjsonURL = "apis.json";
+
+loadAPIsJson($apisjsonURL)
+
+</script>
+<div id="jsonBrowser"></div>

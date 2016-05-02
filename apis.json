@@ -1,0 +1,341 @@
+{
+	"name": "Alchemy API Definition",
+	"description": "",
+	"image": "",
+	"x-open-ranking": "0",
+	"tags": ["Alchemy API Stack"],
+	"created": "2016-04-29",
+	"modified": "2016-04-29",
+	"url": "http://alchemy.stack.network",
+	"specificationVersion": "0.14",
+	"apis": [{
+		"name": "Alchemy Author Extraction API",
+		"description": "",
+		"image": "http://kinlane-productions.s3.amazonaws.com/api-evangelist-site/company/logos/alchemy-api-logo.png",
+		"humanURL": "",
+		"baseURL": "http://access.alchemyapi.com",
+		"tags": ["Alchemy API Stack"],
+		"properties": [{
+			"type": "x-openapi-spec",
+			"url": "api-commons/alchemy-author-extraction-api-openapi-spec.json"
+		}]
+	},
+	{
+		"name": "Alchemy Authors Extraction API",
+		"description": "",
+		"image": "http://kinlane-productions.s3.amazonaws.com/api-evangelist-site/company/logos/alchemy-api-logo.png",
+		"humanURL": "",
+		"baseURL": "http://access.alchemyapi.com",
+		"tags": ["Alchemy API Stack"],
+		"properties": [{
+			"type": "x-openapi-spec",
+			"url": "api-commons/alchemy-authors-extraction-api-openapi-spec.json"
+		}]
+	},
+	{
+		"name": "Alchemy Combined Call API",
+		"description": "",
+		"image": "http://kinlane-productions.s3.amazonaws.com/api-evangelist-site/company/logos/alchemy-api-logo.png",
+		"humanURL": "",
+		"baseURL": "http://access.alchemyapi.com",
+		"tags": ["Alchemy API Stack"],
+		"properties": [{
+			"type": "x-openapi-spec",
+			"url": "api-commons/alchemy-combined-call-api-openapi-spec.json"
+		}]
+	},
+	{
+		"name": "Alchemy Concept Tagging API",
+		"description": "",
+		"image": "http://kinlane-productions.s3.amazonaws.com/api-evangelist-site/company/logos/alchemy-api-logo.png",
+		"humanURL": "",
+		"baseURL": "http://access.alchemyapi.com",
+		"tags": ["Alchemy API Stack"],
+		"properties": [{
+			"type": "x-openapi-spec",
+			"url": "api-commons/alchemy-concept-tagging-api-openapi-spec.json"
+		}]
+	},
+	{
+		"name": "Alchemy Entity Extraction API",
+		"description": "",
+		"image": "http://kinlane-productions.s3.amazonaws.com/api-evangelist-site/company/logos/alchemy-api-logo.png",
+		"humanURL": "",
+		"baseURL": "http://access.alchemyapi.com",
+		"tags": ["Alchemy API Stack"],
+		"properties": [{
+			"type": "x-openapi-spec",
+			"url": "api-commons/alchemy-entity-extraction-api-openapi-spec.json"
+		}]
+	},
+	{
+		"name": "Alchemy Face Detection API",
+		"description": "",
+		"image": "http://kinlane-productions.s3.amazonaws.com/api-evangelist-site/company/logos/alchemy-api-logo.png",
+		"humanURL": "",
+		"baseURL": "http://access.alchemyapi.com",
+		"tags": ["Alchemy API Stack"],
+		"properties": [{
+			"type": "x-openapi-spec",
+			"url": "api-commons/alchemy-face-detection-api-openapi-spec.json"
+		}]
+	},
+	{
+		"name": "Alchemy Feed Detection API",
+		"description": "",
+		"image": "http://kinlane-productions.s3.amazonaws.com/api-evangelist-site/company/logos/alchemy-api-logo.png",
+		"humanURL": "",
+		"baseURL": "http://access.alchemyapi.com",
+		"tags": ["Alchemy API Stack"],
+		"properties": [{
+			"type": "x-openapi-spec",
+			"url": "api-commons/alchemy-feed-detection-api-openapi-spec.json"
+		}]
+	},
+	{
+		"name": "Alchemy Image Link Extraction API",
+		"description": "",
+		"image": "http://kinlane-productions.s3.amazonaws.com/api-evangelist-site/company/logos/alchemy-api-logo.png",
+		"humanURL": "",
+		"baseURL": "http://access.alchemyapi.com",
+		"tags": ["Alchemy API Stack"],
+		"properties": [{
+			"type": "x-openapi-spec",
+			"url": "api-commons/alchemy-image-link-extraction-api-openapi-spec.json"
+		}]
+	},
+	{
+		"name": "Alchemy Keyword and Term Extraction API",
+		"description": "",
+		"image": "http://kinlane-productions.s3.amazonaws.com/api-evangelist-site/company/logos/alchemy-api-logo.png",
+		"humanURL": "",
+		"baseURL": "http://access.alchemyapi.com",
+		"tags": ["Alchemy API Stack"],
+		"properties": [{
+			"type": "x-openapi-spec",
+			"url": "api-commons/alchemy-keyword-and-term-extraction-api-openapi-spec.json"
+		}]
+	},
+	{
+		"name": "Alchemy Language Detection API",
+		"description": "",
+		"image": "http://kinlane-productions.s3.amazonaws.com/api-evangelist-site/company/logos/alchemy-api-logo.png",
+		"humanURL": "",
+		"baseURL": "http://access.alchemyapi.com",
+		"tags": ["Alchemy API Stack"],
+		"properties": [{
+			"type": "x-openapi-spec",
+			"url": "api-commons/alchemy-language-detection-api-openapi-spec.json"
+		}]
+	},
+	{
+		"name": "Alchemy Microformats Parsing API",
+		"description": "",
+		"image": "http://kinlane-productions.s3.amazonaws.com/api-evangelist-site/company/logos/alchemy-api-logo.png",
+		"humanURL": "",
+		"baseURL": "http://access.alchemyapi.com",
+		"tags": ["Alchemy API Stack"],
+		"properties": [{
+			"type": "x-openapi-spec",
+			"url": "api-commons/alchemy-microformats-parsing-api-openapi-spec.json"
+		}]
+	},
+	{
+		"name": "Alchemy News API",
+		"description": "",
+		"image": "http://kinlane-productions.s3.amazonaws.com/api-evangelist-site/company/logos/alchemy-api-logo.png",
+		"humanURL": "",
+		"baseURL": "http://access.alchemyapi.com",
+		"tags": ["Alchemy API Stack"],
+		"properties": [{
+			"type": "x-openapi-spec",
+			"url": "api-commons/alchemy-news-api-openapi-spec.json"
+		}]
+	},
+	{
+		"name": "Alchemy Publication Date Extraction API",
+		"description": "",
+		"image": "http://kinlane-productions.s3.amazonaws.com/api-evangelist-site/company/logos/alchemy-api-logo.png",
+		"humanURL": "",
+		"baseURL": "http://access.alchemyapi.com",
+		"tags": ["Alchemy API Stack"],
+		"properties": [{
+			"type": "x-openapi-spec",
+			"url": "api-commons/alchemy-publication-date-extraction-api-openapi-spec.json"
+		}]
+	},
+	{
+		"name": "Alchemy Relation Extraction API",
+		"description": "",
+		"image": "http://kinlane-productions.s3.amazonaws.com/api-evangelist-site/company/logos/alchemy-api-logo.png",
+		"humanURL": "",
+		"baseURL": "http://access.alchemyapi.com",
+		"tags": ["Alchemy API Stack"],
+		"properties": [{
+			"type": "x-openapi-spec",
+			"url": "api-commons/alchemy-relation-extraction-api-openapi-spec.json"
+		}]
+	},
+	{
+		"name": "Alchemy Sentiment Analysis API",
+		"description": "",
+		"image": "http://kinlane-productions.s3.amazonaws.com/api-evangelist-site/company/logos/alchemy-api-logo.png",
+		"humanURL": "",
+		"baseURL": "http://access.alchemyapi.com",
+		"tags": ["Alchemy API Stack"],
+		"properties": [{
+			"type": "x-openapi-spec",
+			"url": "api-commons/alchemy-sentiment-analysis-api-openapi-spec.json"
+		}]
+	},
+	{
+		"name": "Alchemy Taxonomy API",
+		"description": "",
+		"image": "http://kinlane-productions.s3.amazonaws.com/api-evangelist-site/company/logos/alchemy-api-logo.png",
+		"humanURL": "",
+		"baseURL": "http://access.alchemyapi.com",
+		"tags": ["Alchemy API Stack"],
+		"properties": [{
+			"type": "x-openapi-spec",
+			"url": "api-commons/alchemy-taxonomy-api-openapi-spec.json"
+		}]
+	},
+	{
+		"name": "Alchemy Text Extraction API",
+		"description": "",
+		"image": "http://kinlane-productions.s3.amazonaws.com/api-evangelist-site/company/logos/alchemy-api-logo.png",
+		"humanURL": "",
+		"baseURL": "http://access.alchemyapi.com",
+		"tags": ["Alchemy API Stack"],
+		"properties": [{
+			"type": "x-openapi-spec",
+			"url": "api-commons/alchemy-text-extraction-api-openapi-spec.json"
+		}]
+	},
+	{
+		"name": "Alchemy Text Extraction API",
+		"description": "",
+		"image": "http://kinlane-productions.s3.amazonaws.com/api-evangelist-site/company/logos/alchemy-api-logo.png",
+		"humanURL": "",
+		"baseURL": "http://access.alchemyapi.com",
+		"tags": ["Alchemy API Stack"],
+		"properties": [{
+			"type": "x-openapi-spec",
+			"url": "api-commons/alchemy-text-extraction-api-openapi-spec.json"
+		}]
+	},
+	{
+		"name": "Alchemy Title Extraction API",
+		"description": "",
+		"image": "http://kinlane-productions.s3.amazonaws.com/api-evangelist-site/company/logos/alchemy-api-logo.png",
+		"humanURL": "",
+		"baseURL": "http://access.alchemyapi.com",
+		"tags": ["Alchemy API Stack"],
+		"properties": [{
+			"type": "x-openapi-spec",
+			"url": "api-commons/alchemy-title-extraction-api-openapi-spec.json"
+		}]
+	}],
+	"x-common": [{
+		"type": "x-android-sdk",
+		"url": "https://github.com/AlchemyAPI/alchemyapi_android"
+	},
+	{
+		"type": "x-api-questions",
+		"url": "http://theapistack.com/data/alchemyapi/api-questions-alchemy-api-asking-apisjson.json"
+	},
+	{
+		"type": "x-api-questions",
+		"url": "http://theapistack.com/data/alchemyapi/api-questions-alchemy-api-asking-swagger.json"
+	},
+	{
+		"type": "x-application-gallery",
+		"url": "http://www.alchemyapi.com/developers/tools"
+	},
+	{
+		"type": "x-base-url-for-api",
+		"url": "http://access.alchemyapi.com"
+	},
+	{
+		"type": "x-blog",
+		"url": "http://blog.alchemyapi.com/"
+	},
+	{
+		"type": "x-blog-rss-feed",
+		"url": "http://blog.alchemyapi.com/rss.xml"
+	},
+	{
+		"type": "x-contact-form",
+		"url": "http://www.alchemyapi.com/products/contact-support"
+	},
+	{
+		"type": "x-crunchbase",
+		"url": "http://www.crunchbase.com/company/alchemyapi"
+	},
+	{
+		"type": "x-portal",
+		"url": "http://www.alchemyapi.com/developers"
+	},
+	{
+		"type": "x-events",
+		"url": "http://www.alchemyapi.com/company/events"
+	},
+	{
+		"type": "x-faq",
+		"url": "http://www.alchemyapi.com/company/faq"
+	},
+	{
+		"type": "x-getting-started",
+		"url": "http://www.alchemyapi.com/developers/getting-started-guide"
+	},
+	{
+		"type": "x-github",
+		"url": "https://github.com/AlchemyAPI"
+	},
+	{
+		"type": "x-linkedin",
+		"url": "https://www.linkedin.com/company/alchemyapi"
+	},
+	{
+		"type": "x-dedicated-plans--pricing-page",
+		"url": "http://www.alchemyapi.com/products/pricing"
+	},
+	{
+		"type": "x-privacy-policy-page",
+		"url": "http://www.alchemyapi.com/company/privacy.html"
+	},
+	{
+		"type": "x-sdksio",
+		"url": "https://sdks.io/SDK/View/alchemyapi-3"
+	},
+	{
+		"type": "x-selfservice-registration",
+		"url": "http://www.alchemyapi.com/api/register.html"
+	},
+	{
+		"type": "x-terms-of-service-page",
+		"url": "http://www.alchemyapi.com/company/terms.html"
+	},
+	{
+		"type": "x-trademarks",
+		"url": "http://www.alchemyapi.com/company/trademarks.html"
+	},
+	{
+		"type": "x-twitter",
+		"url": "https://twitter.com/alchemyapi"
+	},
+	{
+		"type": "x-white-papers",
+		"url": "http://www.alchemyapi.com/resources/white-papers"
+	},
+	{
+		"type": "x-api-plan",
+		"url": "api-commons/api-plan.json"
+	}],
+	"include": [],
+	"maintainers": [{
+		"FN": "Kin Lane",
+		"x-twitter": "apievangelist",
+		"email": "info@apievangelist.com"
+	}]
+}

@@ -1,0 +1,167 @@
+title:        Cloud Elements
+url:          http://cloud.elements.stack.network/
+logo:         http://kinlane-productions.s3.amazonaws.com/api-evangelist/api-evangelist-logo-400.png
+logo_width:   80
+logo_bottom_padding: 10
+
+version:      1.1.1
+author:
+  name:       'Kin Lane'
+  email:      'info@apievangelist.com'
+markdown:     kramdown
+
+permalink: /:categories/:year/:month/:day/:title/
+exclude: [".rvmrc", ".rbenv-version", "README.md", "Rakefile", "changelog.md"]
+
+paginate: 150
+paginate_path: "/news/page:num"
+
+categories_path : /categories.html
+tags_path : /tags.html
+
+org: kinlane
+repo: cloud-elements
+
+get_color: 009900;
+post_color: 0000ff;
+put_color: FF0080;
+delete_color: FF9900;
+
+# Masthead title
+masthead_link: http://cloud.elements.stack.network/
+masthead_font_size: 65
+masthead_title: '{"Cloud Elements"}'
+
+# Feature
+feature_title: API Guide
+feature_link: http://apievangelist.com
+feature_image_source: https://s3.amazonaws.com/kinlane-productions/whitepapers/api-guides-loading.jpg
+feature_image_width: 40
+
+# Banner
+banner_title: API Evangelist
+banner_link: http://apievangelist.com
+banner_image_source: http://kinlane-productions.s3.amazonaws.com/api-evangelist/api-evangelist-logo-400.png
+banner_image_width: 60
+
+# Project
+project_image: https://s3.amazonaws.com/kinlane-productions/bw-icons/bw-design.png
+project_title: Alchemy API Definition
+project_summary: This is my repo dedicated to mapping out the Alchemy API as an OpenAPI Spec. My goal is to get as complete of a definition as I can, while also making it openly available on Github. I am doing this for all the APIs included in my Stack.Network research.
+project_footer: If you have a Alchemy OpenAPI Spec feel free to submit, or if you see any issues, anything missing feel free to submit a pull request. You can find more API definitions within the master org, as well as at theapistack.com.
+
+# Navigation
+navigation:
+  - label1: Home
+    link1: /
+    size1: 70
+    extend: 0
+    label2:
+    link2:
+    size2: 0
+    padding: 0
+    decorate: 0
+  - label1: About
+    link1: /about/
+    size1: 70
+    extend: 0
+    label2:
+    link2:
+    size2: 0
+    padding: 0
+    decorate: 0
+  - label1: Paths
+    link1: /tools/manage-paths/
+    size1: 70
+    extend: 0
+    label2:
+    link2:
+    size2: 0
+    padding: 0
+    decorate: 0
+  - label1: Summaries
+    link1: /tools/manage-summaries/
+    size1: 70
+    extend: 0
+    label2:
+    link2:
+    size2: 0
+    padding: 0
+    decorate: 0
+  - label1: Tags
+    link1: /tools/manage-tags/
+    size1: 70
+    extend: 1
+    label2: Cloud
+    link2: /tools/tag-cloud/
+    size2: 50
+    padding: 0
+    decorate: 0
+  - label1: Parameters
+    link1: /tools/manage-parameters/
+    size1: 70
+    extend: 0
+    label2:
+    link2:
+    size2: 0
+    padding: 0
+    decorate: 0
+  - label1: Annotations
+    link1: /tools/annotations/
+    size1: 70
+    extend: 0
+    label2:
+    link2:
+    size2: 0
+    padding: 0
+    decorate: 0
+  - label1: Comment / Issues
+    link1: https://github.com/api-stack/alchemy-api-definition/issues
+    size1: 70
+    extend: 0
+    label2:
+    link2:
+    size2: 0
+    padding: 0
+    decorate: 0
+  - label1: Return to API Evangelist Tools
+    link1: http://tools.apievangelist.com
+    size1: 70
+    extend: 0
+    label2:
+    link2:
+    size2: 10
+    padding: 5
+    decorate: 1
+
+# Footer Navigation
+footernavigation:
+  - label: API 100K View
+    link: http://apievangelist.com
+  - label: News
+    link: /news/
+  - label: Partners
+    link: http://apievangelist.com/partners/
+  - label: APIs.json
+    link: http://apisjson.org
+  - label: About Kin Lane
+    link: http://kinlane.com
+  - label: Branding Guidelines
+    link: http://apievangelist.com/branding-guidelines.html
+  - label: Contact
+    link: http://kinlane.com/contacts/
+
+# sponsors
+sponsors_margin_top: 3
+sponsors_padding_top: 3
+sponsors_json_url: https://s3.amazonaws.com/kinlane-productions/json/sponsors.json
+
+## support
+support_title: Invest & Support In This API Definition Work
+support_header: I depend on the support of my partners to fund my work as an independent analysts. I have been monitoring the world of APIs since July of 2010 through the support of my partners, and a handful of writing or consulting projects along the way. I work to make all my tooling as forkable, and dependent free as they possibly can, running 100%, or near 100% entirely client-side.
+support_footer: I pay my bills by consulting on API projects, and writing white papers and guides. You can find much of my research freely available across my website(s), but if you want to support my work, and get a single snapshot of it at any point in time. If you would like enhancements to this tool, or have a copy running on your own server, in your own envrionment let meknow. Thank you for your support, and feel free to ping me directly if you have more questions.
+
+# about
+about_title: About My Stack Network API Definition Work
+about_header: I feel pretty strongly that there needs to be a wealth of open API definitions out there for API providers, service providers, and consumers can put to use. To fully realize the API economy we are all talking about, we need to do the hard work to craft, share, collaborate, and reuse the best API patterns out there.
+about_footer: This work is born out of my <a href="http://theapistack.com/">original API Stack work</a>, where I have been publishing any API definition I found, or crafted. I'm still aggregating API definitoins there, but I'm also now certifying some of the most requested definitions by my partners, so they can be used to fuel new tooling, services, and integrations. I'll keep everything listed on the API stack site, but you can also get at each project using via the Stack Network Github org.

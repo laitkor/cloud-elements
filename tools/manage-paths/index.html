@@ -1,0 +1,225 @@
+---
+layout: page
+title: 'Manage Paths'
+---
+
+<h3>Manage API Paths</h3>
+<p>This is a listing of API resources available in <a href="/apis.json">this projects APIs.json</a>, focusing on seeing, managing, and auditing the available paths available across potentially many APIs.</p>
+
+<script type="text/jscript">
+
+var $apiurl = "";
+var $openapi_spec_count = 0;
+var $openapi_spec_store = {};
+
+function buildRow($spec,$openapi_spec_count,$flag)
+    {
+
+    $paths = $spec.paths;
+
+    $.each($spec.paths, function(key, value) {
+
+        $path_name = key;
+
+        $.each(value, function(methodKey, methodValue) {
+
+          $summary = '<tr class="path-list-' + $openapi_spec_count + '">';
+          $summary = $summary + '<td align="center" width="10" valign="top"><input type="checkbox" id="' + $path_name + 'delete" value="1" /></td>';
+          $summary = $summary + '<td align="center" valign="top" style="width: 60px; font-size: 11px;">' + methodKey.toUpperCase(); + '</td>';
+          $summary = $summary + '<td align="left" valign="top"><input type="text" id="' + $path_name + '" value="' + $path_name + '" style="width: 700px; height: 100%; font-size: 11px;" /></td>';
+          $summary = $summary + '</tr>';
+
+          $('#table-' + $openapi_spec_count).append($summary);
+
+          });
+
+        });
+    }
+
+function viewSpec($openapi_spec_count)
+    {
+
+    $newpaths = {};
+    $rowcount = 0;
+    $howmany = $('.path-list-' + $openapi_spec_count).length;
+    $currentJSON = $openapi_spec_store[$openapi_spec_count];
+
+    $('.path-list-' + $openapi_spec_count).each(function (i, row) {
+
+         $row = $(row)
+         $paths = $row.find('input');
+
+         $paths.each(function (i, textbox) {
+              if(textbox.type == 'text')
+                {
+                  $path_name = textbox.id;
+                  $path_name_new = textbox.value;
+                  $delete = document.getElementById(textbox.id + 'delete');
+                  if($delete.checked)
+                    {
+
+                    }
+                  else
+                    {
+                    $.each($currentJSON.paths, function(pathKey, pathVal) {
+                        if(pathKey == $path_name)
+                            {
+                            $newpaths[$path_name_new] = pathVal;
+                            }
+                        });
+                    }
+                 }
+            });
+
+            $rowcount++;
+
+            if($howmany == $rowcount)
+                {
+
+                document.getElementById('table-' + $openapi_spec_count).innerHTML = '';
+
+                $currentJSON.paths = $newpaths;
+                $openapi_spec_store[$openapi_spec_count] = $currentJSON;
+
+                $viewer = document.getElementById('table-view-' + $openapi_spec_count)
+                if($viewer.style.display=='none')
+                    {
+                    $view_json = $openapi_spec_store[$openapi_spec_count];
+                    $viewer = JSON.stringify($view_json, null, 4);
+                    document.getElementById('description-view-' + $openapi_spec_count).value = $viewer;
+                    document.getElementById('table-view-' + $openapi_spec_count).style.display = '';
+                    }
+                 else
+                    {
+                    document.getElementById('description-view-' + $openapi_spec_count).value = '';
+                    document.getElementById('table-view-' + $openapi_spec_count).style.display = 'none';
+                    }
+
+                 buildRow($view_json,$openapi_spec_count,0);
+
+                }
+        });
+
+    }
+
+function saveSpec($openapi_spec_count)
+    {
+     console.log("saving spec...");
+    }
+
+function processAPI($singleAPIs)
+    {
+
+    // Begin Each API
+    $.each($singleAPIs, function(apiKey, apiVal) {
+
+        $apiName = apiVal['name'];
+
+        $apiDesc = apiVal['description'];
+        $apiLogo = apiVal['image'];
+        $apiHumanURL = apiVal['humanURL'];
+        $apiBaseURL = apiVal['baseURL'];
+
+        $apiProperties = apiVal['properties'];
+
+        // Begin Each API Properties
+        $.each($apiProperties, function(propertyKey, propertyValue) {
+
+            $type = propertyValue['type'];
+            $url = propertyValue['url'];
+
+            // End OpenAPI Spec
+            if($type=='x-openapi-spec')
+                {
+
+                if (!/^(f|ht)tps?:\/\//i.test($url)) {
+                      $url = "{{ site.url }}" + $url;
+                   }
+
+                var jqxhr3 = $.getJSON($url, function($openapispec) {
+
+                    $openapi_spec_store[$openapi_spec_count] = $openapispec;
+
+                    $savePath = $url;
+                    console.log($savePath);
+
+                    $viewer = '<div id="wrapper' + $openapi_spec_count + '" style="border: 0px solid #000;"></div>';
+                    $('#jsonBrowser').append($viewer);
+
+                    $paths = $openapispec.paths;
+                    $title = $openapispec.info.title;
+
+                    $apiSlug = $title.replace(/ /g,"-");
+                    $apiSlug = $apiSlug.toLowerCase();
+
+                    $html = '<p><strong>' + $title + '</strong>';
+                    $html = $html + '(<a href="#" onclick="viewSpec(' + $openapi_spec_count + '); return false;">view spec</a>)';
+                    $html = $html + '(<a href="#" onclick="saveSpec(' + $openapi_spec_count + '); return false;">save spec</a>)';
+                    $html = $html + '</p>';
+                    $('#wrapper' + $openapi_spec_count).append($html);
+
+                    $html = '<table style="padding: 0px; margin: 0px; display: none;" border="0" id="table-view-' + $openapi_spec_count + '">';
+                    $html = $html + '<tr><td align="left" valign="top" colspan="3"><textarea rows="3" cols="200" style="width: 99%; height: 200px; overflow: auto;" id="description-view-' + $openapi_spec_count + '"></textarea></td></tr></table>';
+                    $('#wrapper' + $openapi_spec_count).append($html);
+
+                    $table = '<table style="padding: 0px; margin: 0px;" border="0" id="table-' + $openapi_spec_count + '">';
+                    $('#wrapper' + $openapi_spec_count).append($table);
+
+                    buildRow($openapispec,$openapi_spec_count,1);
+
+                    $openapi_spec_count++;
+
+                   });
+                 }
+                // End OpenAPI Spec
+
+            });
+            // End Each API Properties
+
+        });
+        // Begin Each API
+    }
+
+function loadAPIsJson($apisjsonURL)
+    {
+
+      $apiHumanURL = "";
+
+      // Begin Pull Root APIs.json
+      var jqxhr = $.getJSON($apisjsonURL, function(apisJSON) {
+
+        $masterName = apisJSON['name'];
+        $masterDesc = apisJSON['description'];
+        $masterLogo = apisJSON['image'];
+        $masterURL = apisJSON['url'];
+
+        $masterAPIs = apisJSON['apis'];
+
+        // Loop Through Each API
+        processAPI($masterAPIs)
+
+        $masterTags = apisJSON['tags'];
+        $masterIncludes = apisJSON['include'];
+
+        // Begin Includes
+        $.each($masterIncludes, function(masterKey, masterValue) {
+
+            $includeName = masterValue['name'];
+            $includeRootUrl = masterValue['url'];
+
+            // Begin Pull Include
+            loadAPIsJson($includeRootUrl)
+            // Begin Pull Include
+
+            });
+            // End Includes
+        });
+        // End Pull Root APIs.json
+    }
+
+$apisjsonURL = "../../apis.json";
+
+loadAPIsJson($apisjsonURL)
+
+</script>
+<div id="jsonBrowser"></div>
